@@ -3,6 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LibraryLogo from '../assets/Library.svg'
 
 const Nav = () => {
+  function openMenu() {
+    document.body.classList += " menu--open"
+  }
+
+  function menuClose() {
+    document.body.classList.remove("menu--open")
+  }
+
   return (
     <nav>
       <div className="nav__container">
@@ -11,12 +19,12 @@ const Nav = () => {
         </a>
         <ul className="nav__links">
           <li className="nav__list">
-            <a href="" className="nav__list">Home</a>
+            <a href="/" className="nav__list">Home</a>
           </li>
           <li className="nav__list">
-            <a href="" className="nav__list">Books</a>
+            <a href="/books" className="nav__list">Books</a>
           </li>
-        <button className="btn__menu">
+        <button className="btn__menu" onClick={openMenu}>
             <FontAwesomeIcon icon="bars" />
         </button>
         <li className="nav__icon">
@@ -27,7 +35,7 @@ const Nav = () => {
         </li>
         </ul>
         <div className="menu__backdrop">
-          <button className="btn__menu btn__menu--close">
+          <button className="btn__menu btn__menu--close" onClick={menuClose}>
             <FontAwesomeIcon icon="times" />
           </button>
           <ul className="menu__links">
