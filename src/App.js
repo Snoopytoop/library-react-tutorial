@@ -23,21 +23,27 @@ function App() {
               ...item,
               quantity: +quantity,
             }
-          : {
-              item,
-            }
+          : item
       )
     );
   }
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  function removeItem(item) {
+    setCart(
+      cart.filter((book) => {
+        return book !== item
+      })
+    )
+  }
+
+  function numberOfItems() {
+    return cart.length
+  }
 
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav numberOfItems={numberOfItems} />
         <Route path="/" exact component={Home} />
         <Route path="/books" exact render={() => <Books books={books} />} />
         <Route
@@ -49,7 +55,7 @@ function App() {
         <Route
           path="/cart"
           render={() => (
-            <Cart books={books} cart={cart} changeQuantity={changeQuantity} />
+            <Cart books={books} cart={cart} changeQuantity={changeQuantity} removeItem={removeItem} />
           )}
         />
         <Footer />
