@@ -47,17 +47,17 @@ const Nav = ({ numberOfItems }) => {
           </button>
           <ul className="menu__links">
             <li className="menu__list">
-              <Link to="/" className="menu__link">
+              <Link to="/" className="menu__link" onClick={menuClose}>
                 Home
               </Link>
             </li>
             <li className="menu__list">
-              <Link to="/books" className="menu__link">
+              <Link to="/books" className="menu__link" onClick={menuClose}>
                 Books
               </Link>
             </li>
             <li className="menu__list">
-              <Link to="/cart" className="menu__link">
+              <Link to="/cart" className="menu__link" onClick={menuClose}>
                 Cart
               </Link>
             </li>
